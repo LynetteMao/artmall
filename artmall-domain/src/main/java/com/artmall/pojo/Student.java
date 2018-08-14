@@ -3,7 +3,6 @@ package com.artmall.pojo;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
-
 @Repository
 public class Student {
     private Long id;

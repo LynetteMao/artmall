@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 
-@MapperScan("com.artmall.mapper")
-@SpringBootApplication
+
+@SpringBootApplication(scanBasePackages = "com.artmall")
+@MapperScan(basePackages = "com.artmall.mapper")
 public class ArtMallWebApplication {
 
     public static void main(String[] args) {

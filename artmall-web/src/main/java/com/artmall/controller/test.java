@@ -3,14 +3,12 @@ package com.artmall.controller;
 
 
 import com.artmall.pojo.Student;
-import com.artmall.response.ServerResponse;
 import com.artmall.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -32,14 +30,16 @@ public class test {
     }
 
     @RequestMapping(value = "/info" )
-    public ServerResponse<Student> getStudentName(){
-        Long id = Long.valueOf(2222);
-        return studentService.selectStudentById(id);
+    public Student getStudentName(){
+        Long id = Long.valueOf(1);
+        Student student = studentService.selectStudentById(id);
+        return student;
+
     }
 
-    @GetMapping("/all")
-    public List<Student> getAll()
-    {
-        return studentService.getAll();
-    }
+//    @GetMapping("/all")
+//    public List<Student> getAll()
+//    {
+//        return studentService.getAll();
+//    }
 }
