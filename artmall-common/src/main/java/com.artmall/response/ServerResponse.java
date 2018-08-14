@@ -93,6 +93,9 @@ public class ServerResponse<T> implements Serializable {
     public static <T> ServerResponse<T> createByFailure(int code, String errMsg) {
         return new ServerResponse<T>(code, errMsg);
     }
+    public static <T> ServerResponse<T> Failure(String errMsg,T data){
+        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(),errMsg,data);
+    }
 
     public static <T> ServerResponse<T> loginSuccess(String msg,T data){
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), msg, data);

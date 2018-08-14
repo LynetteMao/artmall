@@ -4,6 +4,7 @@ package com.artmall.service;
 
 
 import com.artmall.pojo.Student;
+import com.artmall.response.ServerResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,5 +21,7 @@ public interface StudentService {
 
    Student selectStudentById(Long id);
 
-    void addUser(Student student);
+    ServerResponse<Student> addUser(Student student);
+
+    Student selectStudentByStuId(String userNo);
 }

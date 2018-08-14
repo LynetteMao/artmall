@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class SaltUtil {
 
-    public String InitSalt() {
+    public static String InitSalt() {
         Random r = new Random();
         StringBuilder sb = new StringBuilder(16);
         sb.append(r.nextInt(99999999)).append(r.nextInt(99999999));

@@ -2,57 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a3ddab-ffa9-4125-a722-121e24c516a7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/mbg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/BusinessServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/BusinessService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/MyRealm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/exception/ArtmuseumException.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/exception/ArtmuseumException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/jedis/JedisClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/jedis/JedisClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/CodeResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/CodeResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/Const$LoginType.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/Const$LoginType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/Const$OrderStatusEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/Const$OrderStatusEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/ResponseCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/response/ServerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/response/ServerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/utils/SaltUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/utils/SaltUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/ServerResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/response/ServerResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/JWTUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/JWTUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/JsonUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/JsonUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/MD5.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/MD5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/Tools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/artmall-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/artmall-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/StudentMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/StudentMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/pojo/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/pojo/StudentExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/mapper/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/mapper/StudentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-domain/target/classes/com/artmall/pojo/StudentExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/SaltUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-common/target/classes/com/artmall/utils/SaltUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-manager/artmall-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/artmall-manager.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-manager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-manager/target/classes/com/artmall/Impl/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/target/classes/com/artmall/Impl/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-manager/target/classes/com/artmall/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-manager/target/classes/com/artmall/service/StudentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-web/artmall-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/artmall-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/ArtMallWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/ArtMallWebApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artmall-web/target/classes/com/artmall/ArtMallWebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/target/classes/com/artmall/ArtMallWebApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artmall-web/target/classes/com/artmall/controller/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/artmall-web/target/classes/com/artmall/controller/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,11 +38,107 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/artmall-web/pom.xml">
+      <file leaf-file-name="StudentServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="239">
+              <caret line="52" column="123" selection-start-line="52" selection-start-column="123" selection-end-line="52" selection-end-column="123" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/AdminMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-223">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShiroConfiguration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="90" column="52" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyRealm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/MyRealm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthorizingRealm.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/realm/AuthorizingRealm.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthenticatingRealm.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/realm/AuthenticatingRealm.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="68" selection-start-line="68" selection-end-line="70" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleAuthenticationInfo.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/authc/SimpleAuthenticationInfo.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="28" column="85" selection-start-line="28" selection-start-column="85" selection-end-line="28" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusinessService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/BusinessService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -92,19 +153,19 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Filter</find>
+      <find>MyR</find>
+      <find>set</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/artmall-persistence/src/main/java/com.artmall/dao/StudentMapper.java" />
-        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/BusinessServiceImpl.java" />
-        <option value="$PROJECT_DIR$/artmall-persistence/src/main/java/com/artmall/pojo/Student.java" />
-        <option value="$PROJECT_DIR$/artmall-persistence/src/main/java/com/artmall/mapper/StudentMapper.java" />
-        <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/Admin.java" />
-        <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/Student.java" />
-        <option value="$PROJECT_DIR$/artmall-manager/pom.xml" />
         <option value="$PROJECT_DIR$/artmall-web/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/StudentMapper.java" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/xml/StudentMapper.java" />
@@ -114,12 +175,8 @@
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/artmall-domain/pom.xml" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/resources/xml/StudentMapper.xml" />
-        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/test/com/artmall/Impl/StudentServiceImplTest.java" />
         <option value="$PROJECT_DIR$/artmall-manager/src/test/java/StudentServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/artmall-manager/src/test/java/com/artmall/StudentServiceImplTest.java" />
         <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/mbg.java" />
-        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/AdminMapper.java" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/BusinessMapper.java" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/ResourceMapper.java" />
@@ -142,13 +199,24 @@
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/pojo/User.java" />
         <option value="$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/pojo/UserExample.java" />
         <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/ArtMallWebApplication.java" />
-        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java" />
         <option value="$PROJECT_DIR$/artmall-web/pom.xml" />
-        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroLifecycleBeanPostProcessorConfig.java" />
-        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java" />
         <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/filter/JWTFilter.java" />
         <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/Realm/BusinessRealm.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroLifecycleBeanPostProcessorConfig.java" />
         <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/BusinessService.java" />
+        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/BusinessServiceImpl.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/BusinessRealm.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/StudentRealm.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/filter/JWTFilter.java" />
+        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java" />
+        <option value="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/utils/SaltUtil.java" />
+        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/test/com/artmall/Impl/StudentServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/artmall-manager/src/test/java/com/artmall/StudentServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/response/ServerResponse.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/MyRealm.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java" />
+        <option value="$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java" />
+        <option value="$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -193,10 +261,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="571" />
-    <option name="y" value="101" />
-    <option name="width" value="1690" />
-    <option name="height" value="930" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -216,6 +283,113 @@
             <path>
               <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
               <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.artmall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-domain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
               <item name="artmall-manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,6 +421,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com.artmall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="Impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
@@ -257,6 +441,30 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com.artmall" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
@@ -303,6 +511,45 @@
               <item name="artmall" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+              <item name="Realm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="artmall" type="462c0819:PsiDirectoryNode" />
+              <item name="artmall-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -316,7 +563,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ArtMuseum" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -330,18 +577,18 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\project\artmall\artmall-web\src\main\java\com\artmall\shiro\config" />
       <recent name="D:\java\project\artmall\artmall-web\src\main\java\com\artmall\shiro" />
+      <recent name="D:\java\project\artmall\artmall-web\src\main\java\com\artmall\shiro\config" />
       <recent name="D:\java\project\artmall\artmall-domain\src\main\java\com\artmall\mapper\xml" />
       <recent name="D:\java\project\artmall\artmall-manager\src\main\java\com.artmall" />
       <recent name="D:\java\project\artmall\artmall-persistence\src\main\java\com.artmall" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.artmall.service" />
+      <recent name="com.artmall.Impl" />
       <recent name="com.artmall.controller" />
       <recent name="com.artmall.pojo" />
       <recent name="com.artmall.mapper" />
-      <recent name="com.artmall.mapper.xml" />
-      <recent name="com.artmall" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java\project\artmall\artmall-domain\src\main\resources\xml" />
@@ -377,6 +624,29 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+    </configuration>
+    <configuration name="StudentServiceImplTest.testAddUser (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="artmall-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.com.artmall.Impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.com.artmall.Impl" />
+      <option name="MAIN_CLASS_NAME" value="test.com.artmall.Impl.StudentServiceImplTest" />
+      <option name="METHOD_NAME" value="testAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="StudentServiceImplTest.testAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="artmall-manager" />
@@ -471,12 +741,14 @@
       <item itemvalue="Application.mbg" />
       <item itemvalue="JUnit.StudentServiceImplTest.testAddUser" />
       <item itemvalue="JUnit.StudentServiceImplTest.testSelectStudentById" />
+      <item itemvalue="JUnit.StudentServiceImplTest.testAddUser (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StudentServiceImplTest.testAddUser (1)" />
+        <item itemvalue="JUnit.StudentServiceImplTest.testAddUser" />
         <item itemvalue="Application.mbg" />
         <item itemvalue="JUnit.StudentServiceImplTest.testSelectStudentById" />
-        <item itemvalue="JUnit.StudentServiceImplTest.testAddUser" />
       </list>
     </recent_temporary>
   </component>
@@ -491,17 +763,11 @@
       <option name="presentableId" value="Default" />
       <updated>1534129987024</updated>
       <workItem from="1534129989622" duration="27152000" />
-      <workItem from="1534208024956" duration="14039000" />
+      <workItem from="1534208024956" duration="32257000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StudentServiceImplTest_testAddUser - 2018.08.14 at 11h 08m 57s.xml">
-      <configuration name="StudentServiceImplTest.testAddUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentServiceImplTest_testAddUser - 2018.08.14 at 11h 09m 52s.xml">
-      <configuration name="StudentServiceImplTest.testAddUser" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="StudentServiceImplTest_testAddUser - 2018.08.14 at 11h 10m 57s.xml">
       <configuration name="StudentServiceImplTest.testAddUser" configurationId="JUnit" />
     </history-entry>
@@ -526,17 +792,23 @@
     <history-entry file="StudentServiceImplTest_testSelectStudentById - 2018.08.14 at 11h 33m 52s.xml">
       <configuration name="StudentServiceImplTest.testSelectStudentById" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="StudentServiceImplTest_testAddUser - 2018.08.14 at 18h 23m 05s.xml">
+      <configuration name="StudentServiceImplTest.testAddUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentServiceImplTest_testAddUser_(1) - 2018.08.14 at 18h 26m 25s.xml">
+      <configuration name="StudentServiceImplTest.testAddUser (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41191000" />
+    <option name="totallyTimeSpent" value="59409000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="457" y="81" width="1352" height="744" extended-state="0" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="6" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11595174" side_tool="true" weight="0.8459344" />
-      <window_info anchor="right" id="Maven Projects" order="0" visible="true" weight="0.0" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.0" />
       <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
       <window_info id="Capture Tool" order="8" />
       <window_info id="Designer" order="0" />
@@ -551,14 +823,15 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Run" order="10" sideWeight="0.8840483" visible="true" weight="0.2339374" />
+      <window_info anchor="bottom" id="Run" order="10" sideWeight="0.8840483" weight="0.021645023" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Spring" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.24652241" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.56846476" />
       <window_info anchor="bottom" id="Problems" order="0" />
       <window_info anchor="right" id="Bean Validation" order="5" />
       <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="8" sideWeight="0.49957877" weight="0.6690442" />
       <window_info id="Learn" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -567,8 +840,43 @@
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="8" sideWeight="0.49957877" weight="0.32967034" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Palette" order="6" />
+      <window_info anchor="bottom" id="Spring" order="1" />
+      <window_info id="Image Layers" order="1" />
+      <window_info anchor="bottom" id="Run" order="10" sideWeight="0.8840483" visible="true" weight="0.021645023" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11595174" side_tool="true" weight="0.8459344" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49798927" weight="0.3294893" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Problems" order="0" />
+      <window_info anchor="bottom" id="Java Enterprise" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.0" />
+      <window_info anchor="bottom" id="Find" order="8" sideWeight="0.49957877" weight="0.6690442" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.56846476" />
+      <window_info id="Learn" order="4" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
+      <window_info anchor="right" id="Bean Validation" order="5" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -577,134 +885,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/BusinessServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-persistence/src/main/java/com/artmall/mapper/StudentMapper.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-persistence/src/main/java/com/artmall/pojo/Student.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/Admin.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/test/com/artmall/controller/testTest.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/xml/StudentMapper.java" />
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/resources/xml/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#1;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#3;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/binding/MapperMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="303" column="10" selection-start-line="303" selection-start-column="10" selection-end-line="303" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/resources/xml/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#1;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#3;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-manager/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="16" selection-start-line="16" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="22" selection-end-line="4" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-manager/src/test/java/com/artmall/StudentServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1755">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/mbg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/artmall-domain/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/AdminMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -732,13 +916,6 @@
     <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/RoleMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/StudentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
@@ -863,16 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/pojo/RoleExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -890,25 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/UserToken.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/UserModularRealmAuthenticator.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroLifecycleBeanPostProcessorConfig.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/Realm/StudentRealm.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -917,13 +1065,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/filter/JWTFilter.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/BusinessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/Realm/BusinessRealm.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -937,8 +1078,201 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/artmall-web/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        <state relative-caret-position="283">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/JWT/JWTToken.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/UserToken.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/UserModularRealmAuthenticator.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/BusinessRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroLifecycleBeanPostProcessorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/filter/JWTFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1419">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/StudentRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/resources/com/artmall/mapper/StudentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-99">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+          <folding>
+            <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" />
+            <element signature="n#sql#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#delete#1;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/utils/SaltUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/test/com/artmall/Impl/StudentServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/test/java/com/artmall/StudentServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="47" column="56" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="47" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-common/src/main/java/com.artmall/response/ServerResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/StudentMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/BusinessServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/BusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-domain/src/main/java/com/artmall/mapper/AdminMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/authc/SimpleAuthenticationInfo.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="28" column="85" selection-start-line="28" selection-start-column="85" selection-end-line="28" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/realm/AuthorizingRealm.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar!/org/apache/shiro/realm/AuthenticatingRealm.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="68" selection-start-line="68" selection-end-line="70" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/Realm/MyRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/shiro/config/ShiroConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="90" column="52" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/service/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/controller/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artmall-manager/src/main/java/com.artmall/Impl/StudentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="52" column="123" selection-start-line="52" selection-start-column="123" selection-end-line="52" selection-end-column="123" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

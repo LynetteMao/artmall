@@ -3,13 +3,16 @@ package com.artmall.controller;
 
 
 import com.artmall.pojo.Student;
+import com.artmall.response.ServerResponse;
 import com.artmall.service.StudentService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -31,9 +34,31 @@ public class test {
 
     @RequestMapping(value = "/info" )
     public Student getStudentName(){
-        Long id = Long.valueOf(1);
-        Student student = studentService.selectStudentById(id);
+        Student student = studentService.selectStudentByStuId("20162590");
         return student;
+    }
+
+    @RequestMapping(value = "/register" )
+    public ServerResponse<Student> signin (){
+
+        Student student = new Student();
+        student.setStudentId("20162595");
+        student.setHashedPwd("1234567890");
+        student.setLoginName("布吉岛呀");
+        return studentService.addUser(student);
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST )
+    public ServerResponse<Student> login (){
+        String studentId = "20162595";
+        String password = "1234567890";
+        UsernamePasswordToken token = new UsernamePasswordToken(studentId,password);
+        Subject subject = SecurityUtils.getSubject();
+
+            System.out.println("进行登入验证");
+            subject.login(token);
+
+        return ServerResponse.loginSuccess("登入成功");
 
     }
 
