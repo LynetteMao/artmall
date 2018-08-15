@@ -51,14 +51,18 @@ public class ShiroConfiguration {
         Map<String,String> filterChainDefinitionMap =  new LinkedHashMap<String,String>();
         //配置不会被拦截的链接 顺序判断
         //anon:所有url都可以匿名访问
+
+
         filterChainDefinitionMap.put("/static/**","anon");
         //配置退出,shiro已内置logout过滤器
         filterChainDefinitionMap.put("/logout","logout");
         //
         filterChainDefinitionMap.put("/register","anon");
-        filterChainDefinitionMap.put("/hello","anon");
+//        filterChainDefinitionMap.put("/hello","anon");
         filterChainDefinitionMap.put("/info","anon");
         filterChainDefinitionMap.put("/login","anon");
+
+
         //表示需要认证，没有登陆是不能访问的
         filterChainDefinitionMap.put("/**","authc");
         //配置shiro默认登陆界面，不过在前后端分离中应该有前端路由控制
@@ -88,7 +92,7 @@ public class ShiroConfiguration {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
 
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");//散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(1);//散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setHashIterations(1024);//散列的次数，比如散列两次，相当于 md5(md5(""));
 
         return hashedCredentialsMatcher;
     }

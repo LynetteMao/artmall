@@ -50,7 +50,8 @@ public class StudentServiceImpl implements StudentService {
         newStudent.setId(IDUtils.getProjectId());
         newStudent.setStudentId(student.getStudentId());
         newStudent.setSalt(SaltUtil.InitSalt());
-        newStudent.setHashedPwd(new SimpleHash("MD5",student.getHashedPwd(),ByteSource.Util.bytes(student.getSalt()),1024).toString());
+        newStudent.setHashedPwd(new SimpleHash("MD5",student.getHashedPwd(),ByteSource.Util.bytes(newStudent.getSalt()),1024).toString());
+//        newStudent.setHashedPwd(student.getHashedPwd());
         newStudent.setGmtCreate(new Date());
         newStudent.setIsVerified((byte) 0);
         newStudent.setLoginName(student.getLoginName());

@@ -42,23 +42,36 @@ public class test {
     public ServerResponse<Student> signin (){
 
         Student student = new Student();
-        student.setStudentId("20162595");
-        student.setHashedPwd("1234567890");
-        student.setLoginName("布吉岛呀");
+        student.setStudentId("20162570");
+        student.setHashedPwd("123456");
+        student.setLoginName("最后一次尝试");
         return studentService.addUser(student);
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST )
     public ServerResponse<Student> login (){
-        String studentId = "20162595";
-        String password = "1234567890";
+        String studentId = "20162570";
+        String password = "123456";
         UsernamePasswordToken token = new UsernamePasswordToken(studentId,password);
         Subject subject = SecurityUtils.getSubject();
-
+        try {
             System.out.println("进行登入验证");
             subject.login(token);
+        }catch (Exception e){
+            return ServerResponse.loginFailure("登入失败");
+        }
+
 
         return ServerResponse.loginSuccess("登入成功");
+
+    }
+    //没有session，所以无法测试，无法保存登入状态
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public ServerResponse<Student> logout (){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        log.debug("logout");
+        return ServerResponse.loginSuccess("logout成功");
 
     }
 
