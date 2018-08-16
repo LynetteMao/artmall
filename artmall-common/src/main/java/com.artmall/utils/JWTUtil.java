@@ -27,16 +27,16 @@ public class JWTUtil {
     /**
      * 校验token是否正确
      * @param token 密钥
-     * @param userNo 用户id
+     * @param userId 用户id
      * @param  loginType 用户类型
      * @return 是否正确
      */
-    public static boolean verify(String token, Long userNo,Const.LoginType loginType) {
+    public static boolean verify(String token, Long userId) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
             JWTVerifier verifier = JWT.require(algorithm)
-                    .withClaim("userNo", userNo)
-                    .withClaim("userType", String.valueOf(loginType))
+                    .withClaim("userId", userId)
+//                    .withClaim("userType", String.valueOf(loginType))
                     .build();
             verifier.verify(token);
             return true;
@@ -52,7 +52,7 @@ public class JWTUtil {
     public static Long getUserNo(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("userNo").asLong();
+            return jwt.getClaim("userId").asLong();
         } catch (JWTDecodeException e) {
             return null;
         }
@@ -76,13 +76,13 @@ public class JWTUtil {
      * @param  userType 用户类型
      * @return 加密的token
      */
-    public static String sign(String userNo, Const.LoginType userType) {
+    public static String sign(Long userId, Const.LoginType userType) {
         Date date = new Date(System.currentTimeMillis()+EXPIRE_TIME);
         Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
 
         // 附带username信息
         return JWT.create()
-                .withClaim("userNo", userNo)
+                .withClaim("userId", userId)
 //                .withClaim("userType",userType)
                 .withExpiresAt(date)
                 .sign(algorithm);

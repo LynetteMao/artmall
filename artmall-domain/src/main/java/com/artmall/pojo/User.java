@@ -3,8 +3,11 @@ package com.artmall.pojo;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 @Repository
 public class User {
+    private Long id;
+
     private Long userId;
 
     private Long roleId;
@@ -12,6 +15,14 @@ public class User {
     private Date gmtCreate;
 
     private Date gmtModified;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getUserId() {
         return userId;

@@ -3,6 +3,7 @@ package com.artmall.mapper;
 import com.artmall.pojo.User;
 import com.artmall.pojo.UserExample;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -15,7 +16,7 @@ public interface UserMapper {
 
     int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(Long userId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(User record);
 
@@ -23,7 +24,7 @@ public interface UserMapper {
 
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(Long userId);
+    User selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
@@ -32,4 +33,9 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    Set<String> getRoles(@Param("user_id") Long userid);
+
+    Set<String> getPermissions(@Param("user_id") Long userid);
+
 }

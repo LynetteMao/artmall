@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Repository
-
 public class RoleExample {
     protected String orderByClause;
 

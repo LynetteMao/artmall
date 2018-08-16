@@ -51,17 +51,16 @@ public class StudentServiceImpl implements StudentService {
         newStudent.setStudentId(student.getStudentId());
         newStudent.setSalt(SaltUtil.InitSalt());
         newStudent.setHashedPwd(new SimpleHash("MD5",student.getHashedPwd(),ByteSource.Util.bytes(newStudent.getSalt()),1024).toString());
-//        newStudent.setHashedPwd(student.getHashedPwd());
         newStudent.setGmtCreate(new Date());
         newStudent.setIsVerified((byte) 0);
         newStudent.setLoginName(student.getLoginName());
         try {
             studentMapper.insert(newStudent);
         }catch (Exception e){
-            return ServerResponse.Failure("插入失败",newStudent);
+            return ServerResponse.Failure("插入失败");
         }
 
-        return ServerResponse.createBySuccess("插入成功");
+        return ServerResponse.Success("插入成功");
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ServerResponse<T> implements Serializable {
 
     private T data;
 
-    public ServerResponse() {
+    public ServerResponse(String msg) {
     }
 
     private ServerResponse(int status) {
@@ -46,8 +46,6 @@ public class ServerResponse<T> implements Serializable {
     }
 
 
-
-
     @JsonIgnore
     public boolean isSuccess(){
         return this.status == ResponseCode.SUCCESS.getCode();
@@ -66,48 +64,25 @@ public class ServerResponse<T> implements Serializable {
         return this.data;
     }
 
-    public static <T> ServerResponse<T> createBySuccess() {
+
+
+    public static <T> ServerResponse<T> Success(String msg,T data){
+        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg,data);
+    }
+    public static <T> ServerResponse<T> Success(String msg){
+        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg);
+    }
+    public static <T> ServerResponse<T> Success(){
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode());
     }
-
-    public static <T> ServerResponse<T> createBySuccess(String msg) {
-        return new ServerResponse<>(ResponseCode.SUCCESS.getCode(), msg);
+    public static <T> ServerResponse<T> Failure(){
+        return new ServerResponse<T>(ResponseCode.FAILURE.getCode());
     }
-
-    public static <T> ServerResponse<T> createBySuccess(T data) {
-        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), data);
+    public static <T> ServerResponse<T> Failure(String msg){
+        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(),msg);
     }
-
-    public static <T> ServerResponse<T> createBySuccess(String msg, T data) {
-        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), msg, data);
-    }
-
-    public static <T> ServerResponse<T> createByFailure() {
-        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(), ResponseCode.FAILURE.getDesc());
-    }
-
-    public static <T> ServerResponse<T> createByFailure(String errMsg) {
-        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(), errMsg);
-    }
-
-    public static <T> ServerResponse<T> createByFailure(int code, String errMsg) {
-        return new ServerResponse<T>(code, errMsg);
-    }
-    public static <T> ServerResponse<T> Failure(String errMsg,T data){
-        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(),errMsg,data);
-    }
-
-    public static <T> ServerResponse<T> loginSuccess(String msg,T data){
-        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), msg, data);
-    }
-    public static <T> ServerResponse<T> loginSuccess(String msg) {
-        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), msg);
-    }
-    public static <T> ServerResponse<T> loginFailure(String errMsg){
-        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(), errMsg);
-    }
-    public static <T> ServerResponse<T> loginFirst(String msg,T data){
-        return new ServerResponse<>(ResponseCode.STUDENT_FIRST_LOGIN.getCode(),msg,data);
+    public static <T> ServerResponse<T> Failure(String msg,T data){
+        return new ServerResponse<T>(ResponseCode.FAILURE.getCode(),msg,data);
     }
 
 }

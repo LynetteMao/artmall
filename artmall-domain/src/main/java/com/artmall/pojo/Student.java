@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 @Repository
-public class Student {
+public class Student implements UserMember {
     private Long id;
 
     private String studentId;
