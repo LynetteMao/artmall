@@ -28,7 +28,7 @@ public class JWTUtil {
      * 校验token是否正确
      * @param token 密钥
      * @param userId 用户id
-     * @param  loginType 用户类型
+//     * @param  loginType 用户类型
      * @return 是否正确
      */
     public static boolean verify(String token, Long userId) {
@@ -72,7 +72,7 @@ public class JWTUtil {
 
     /**
      * 生成签名,指定时间后过期,一经生成不可修改，令牌在指定时间内一直有效
-     * @param userNo 用户ID
+     * @param userId 用户ID
      * @param  userType 用户类型
      * @return 加密的token
      */
@@ -83,7 +83,7 @@ public class JWTUtil {
         // 附带username信息
         return JWT.create()
                 .withClaim("userId", userId)
-//                .withClaim("userType",userType)
+                .withClaim("userType", String.valueOf(userType))
                 .withExpiresAt(date)
                 .sign(algorithm);
 

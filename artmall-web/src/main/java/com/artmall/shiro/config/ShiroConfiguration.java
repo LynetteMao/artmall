@@ -8,6 +8,7 @@ package com.artmall.shiro.config;
  **/
 
 import com.artmall.shiro.JWT.JWTToken;
+import com.artmall.shiro.Realm.AdminRealm;
 import com.artmall.shiro.Realm.BusinessRealm;
 import com.artmall.shiro.Realm.JWTRealm;
 import com.artmall.shiro.Realm.StudentRealm;
@@ -120,6 +121,12 @@ public class ShiroConfiguration {
 //        businessRealm.setAuthenticationTokenClass(UserToken.class);
         return businessRealm;
     }
+    @Bean
+    public AdminRealm adminRealm(){
+        AdminRealm adminRealm = new AdminRealm();
+        adminRealm.setCredentialsMatcher(hashedCredentialsMatcher());
+        return adminRealm;
+    }
 //   @Bean
 //   public StudentRealm myRealm(){
 //        StudentRealm myRealm = new StudentRealm();
@@ -143,6 +150,7 @@ public class ShiroConfiguration {
 //        //添加多个Realm
         realms.add(studentRealm());
         realms.add(businessRealm());
+        realms.add(adminRealm());
         realms.add(jwtRealm());
 //        realms.add(myRealm());
 

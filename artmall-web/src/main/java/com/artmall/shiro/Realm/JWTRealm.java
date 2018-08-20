@@ -4,6 +4,7 @@ import com.artmall.pojo.Student;
 import com.artmall.pojo.User;
 import com.artmall.pojo.UserMember;
 import com.artmall.response.Const;
+import com.artmall.service.AdminService;
 import com.artmall.service.BusinessService;
 import com.artmall.service.StudentService;
 import com.artmall.service.UserService;
@@ -32,6 +33,8 @@ public class JWTRealm extends AuthorizingRealm {
     StudentService studentService;
     @Autowired
     BusinessService businessService;
+    @Autowired
+    AdminService adminService;
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -59,22 +62,25 @@ public class JWTRealm extends AuthorizingRealm {
         JWTToken jwtToken =(JWTToken) authenticationToken;
         String jwt = (String) jwtToken.getCredentials();
         System.out.println("jwt为"+jwt);
-//        UserMember user = null;
-//        String type;
+        UserMember user = null;
+        String type;
             Long userid = JWTUtil.getUserNo(jwt);
             System.out.println("userid是"+userid);
             Student student = studentService.selectStudentById(userid);
-//            if (JWTUtil.getUserType(jwt).equals(Const.LoginType.STUDENT)){
-//                user=studentService.selectStudentById(userid);
-//            }
-//            if (JWTUtil.getUserType(jwt).equals(Const.LoginType.BUSINESS)){
-//                user=businessService.selectBusinessById(userid);
-//            }
-
-
-            if (student == null)
+//            System.out.println("userType为："+JWTUtil.getUserType(jwt));
+            if (JWTUtil.getUserType(jwt).equals(String.valueOf(Const.LoginType.STUDENT))){
+                user=studentService.selectStudentById(userid);
+            }
+            if (JWTUtil.getUserType(jwt).equals(String.valueOf(Const.LoginType.BUSINESS))){
+                user=businessService.selectBusinessById(userid);
+            }
+            if (JWTUtil.getUserType(jwt).equals(String.valueOf(Const.LoginType.ADMIN))){
+//                System.out.println("我就是admin");
+                user = adminService.selectByUserId(userid);
+            }
+            if (user == null)
                 throw new AuthenticationException("User didn't exit it");
-            if (!JWTUtil.verify(jwt,userid))
+            if (!JWTUtil.verify(jwt,user.getId()))
                 throw new AuthenticationException("username or password error");
             return new SimpleAuthenticationInfo(jwt,jwt,getName());
 

@@ -2,10 +2,13 @@ package com.artmall.controller;
 
 
 
+import com.artmall.mapper.AdminMapper;
+import com.artmall.pojo.Admin;
 import com.artmall.pojo.Business;
 import com.artmall.pojo.Student;
 import com.artmall.response.Const;
 import com.artmall.response.ServerResponse;
+import com.artmall.service.AdminService;
 import com.artmall.service.BusinessService;
 import com.artmall.service.StudentService;
 import com.artmall.utils.JWTUtil;
@@ -55,19 +58,17 @@ public class test {
     }
 
     @RequestMapping(value = "/register" ,method = RequestMethod.POST)
-    public ServerResponse<Student> signin (@RequestParam String studentId,
-                                            @RequestParam  String password,
-                                            @RequestParam  String name
+    public ServerResponse<Admin> signin (@RequestParam(name = "username") String username,
+                                            @RequestParam(name = "password")  String password
                                             ){
-        log.debug(studentId);
-        Student student = new Student();
-        student.setStudentId(studentId);
-        student.setHashedPwd(password);
-        student.setLoginName(name);
+        log.debug(username);
+        Admin admin = new Admin();
+        admin.setLoginName(username);
+        admin.setHashedPwd(password);
 //        student.setStudentId("2016");
 //        student.setHashedPwd("1234567890");
 //        student.setLoginName("尝");
-        return studentService.addUser(student);
+        return adminService.addUser(admin);
     }
 
     @Autowired
@@ -116,6 +117,19 @@ public class test {
         return ServerResponse.Success(JWTUtil.sign(business.getId(),Const.LoginType.BUSINESS));
     }
 
+    @Autowired
+    AdminService adminService;
+    @RequestMapping(value = "/admin/login",method = RequestMethod.POST )
+    public ServerResponse<Admin> AdminLogin(@RequestParam(name = "username")String username,
+                                            @RequestParam(name = "password") String password) {
+
+        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+        Admin admin = adminService.selectByUsername(username);
+        Subject subject = SecurityUtils.getSubject();
+        subject.login(token);
+        return ServerResponse.Success(JWTUtil.sign(admin.getId(),Const.LoginType.ADMIN));
+
+    }
     //没有session，所以无法测试，无法保存登入状态
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public ServerResponse<Student> logout (){

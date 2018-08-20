@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 @Repository
-public class Admin {
+public class Admin implements UserMember {
     private Long id;
 
     private String loginName;
