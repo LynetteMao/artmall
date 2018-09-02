@@ -8,9 +8,12 @@ import com.artmall.pojo.StudentExample;
 import com.artmall.response.ServerResponse;
 import com.artmall.service.StudentService;
 import com.artmall.utils.IDUtils;
+import com.artmall.utils.JWTUtil;
 import com.artmall.utils.MD5;
 import com.artmall.utils.SaltUtil;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -47,7 +50,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ServerResponse<Student> addUser(Student student) {
         Student newStudent = new Student();
-        newStudent.setId(IDUtils.getProjectId());
+        newStudent.setId(new IDUtils(4,5).nextId());
         newStudent.setStudentId(student.getStudentId());
         newStudent.setSalt(SaltUtil.InitSalt());
         newStudent.setHashedPwd(new SimpleHash("MD5",student.getHashedPwd(),ByteSource.Util.bytes(newStudent.getSalt()),1024).toString());
@@ -70,5 +73,22 @@ public class StudentServiceImpl implements StudentService {
         criteria.andStudentIdEqualTo(userNo);
         List<Student> list = studentMapper.selectByExample(example);
         return list.get(0);
+    }
+
+    @Override
+    public ServerResponse<Student> resetPassword(String newpassword) {
+        Subject subject = SecurityUtils.getSubject();
+        String token = (String) subject.getPrincipal();
+        Long id = JWTUtil.getUserNo(token);
+        Student student = studentMapper.selectByPrimaryKey(id);
+        student.setHashedPwd(new SimpleHash("MD5",newpassword,ByteSource.Util.bytes(student.getSalt()),1024).toString());
+        student.setIsVerified(Byte.valueOf("1"));
+        try {
+            studentMapper.updateByPrimaryKey(student);
+        }catch (Exception e){
+            return ServerResponse.Failure("修改密码");
+        }
+
+        return ServerResponse.Success("修改密码成功",student);
     }
 }

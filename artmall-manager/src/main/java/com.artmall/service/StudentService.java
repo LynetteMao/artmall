@@ -24,4 +24,6 @@ public interface StudentService {
     ServerResponse<Student> addUser(Student student);
 
     Student selectStudentByStuId(String userNo);
+
+    ServerResponse<Student> resetPassword(String newpassword);
 }

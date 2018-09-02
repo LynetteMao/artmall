@@ -12,22 +12,22 @@ public enum ResponseCode {
     /**
      * 成功
      */
-    SUCCESS(0,"SUCCESS"),
+    SUCCESS(200,"SUCCESS"),
 
     /**
      * 失败
      */
-    FAILURE(1,"FAILURE"),
+    FAILURE(500,"FAILURE"),
 
     /**
      * 需要登录
      */
-    NEED_LOGIN(2,"NEED_LOGIN"),
+    NEED_LOGIN(401,"NEED_LOGIN"),
 
     /**
      * 非法参数
      */
-    ILLEGAL_ARGUMENT(3,"ILLEGAL_ARGUMENT"),
+    ILLEGAL_ARGUMENT(400,"ILLEGAL_ARGUMENT"),
 
     /**
      * 学生第一次登录
