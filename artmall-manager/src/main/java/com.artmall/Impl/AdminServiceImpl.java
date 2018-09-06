@@ -29,7 +29,10 @@ public class AdminServiceImpl implements AdminService {
         AdminExample.Criteria criteria = example.createCriteria();
         criteria.andLoginNameEqualTo(username);
         List<Admin> list = adminMapper.selectByExample(example);
-        return list.get(0);
+        if (list.isEmpty())
+            return null;
+        else
+            return list.get(0);
     }
 
     @Override

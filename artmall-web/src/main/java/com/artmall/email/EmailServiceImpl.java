@@ -1,12 +1,15 @@
 package com.artmall.email;
 
-import com.artmall.RedisTokenManager;
+
+import com.artmall.config.RedisTokenManager;
 import com.artmall.pojo.Business;
 import com.artmall.response.ServerResponse;
+import com.artmall.utils.Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -16,7 +19,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 /**
- * @author
+ * @author mllove
  * @create 2018-08-22 15:15
  **/
 @Service
@@ -24,9 +27,13 @@ public class EmailServiceImpl implements EmailService {
     private final static Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
 
 
-    private static final String TITLE_SIGN_UP = "[邮件标题]";
+    private static final String SIGN_TITLE_SIGN_UP = "The register massage";
 
-    private static final String CONTENT = "[邮件内容]";
+    private static final String FORGET_TITLE_SIGN_UP = "The register massage";
+
+    private static final String SIGN_CONTENT = "please check it:";
+
+    private static final String FORGET_CONTENT = "please reset the password:";
     @Autowired
     private JavaMailSender emailSender;
 
@@ -34,7 +41,8 @@ public class EmailServiceImpl implements EmailService {
     private String from;
 
 
-    @Override
+    //可以发送，发送成功
+  /*  @Override
     public ServerResponse sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
@@ -47,39 +55,94 @@ public class EmailServiceImpl implements EmailService {
 //        }catch (Exception e){
 //            return ServerResponse.Failure("邮件发送失败");
 //        }
-    }
-    public  void test(Business business,String token){
+    }*/
+    //可发送，但是会乱码
+/*    public  ServerResponse  test(Business business,String token){
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(business.getEmail());
         message.setSubject("验证邮件");
-        String link = "http://localhost:8080"+token;
+        String link = "http://localhost:8080/business/register/verify?token="+token+"&id="+business.getId();
         String mes=String.format(CONTENT,business.getBusinessName(),link,link);
-        message.setText(link);
+        message.setText(link+mes);
         emailSender.send(message);
-        System.out.println("have send");
-    }
+        return ServerResponse.Success("Send Sucess");
+    }*/
 
     @Override
-    public void registerEmail(Business business, String token) {
+    public ServerResponse registerEmail(Business business, String token) {
         MimeMessage mimeMessage = emailSender.createMimeMessage();
         try {
-            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"GBK");
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
             helper.setFrom(from);
             helper.setTo(business.getEmail());
-            helper.setSubject(TITLE_SIGN_UP);
-            String link = "http://localhost:8080/"+token;
-            String message = String.format(CONTENT,business.getBusinessName(),link,link);
+            helper.setSubject(SIGN_TITLE_SIGN_UP);
+            String link = "http://localhost:8080/business/register/verify?token="+token+"&id="+business.getId();
+            String message = business.getBusinessName()+SIGN_CONTENT+"\n"+link;
+            helper.setText(message);
             emailSender.send(mimeMessage);
         } catch (MessagingException e) {
-            log.error("发送邮件失败");
+            return ServerResponse.Failure("send failure");
         }
+        return ServerResponse.Success("send sucess");
+
     }
 
     @Autowired
     RedisTokenManager redisTokenManager;
-    @Override
-    public void userValidate(Business business, String token) {
+    @Autowired
+    RedisTemplate redisTemplate;
 
+    /**
+     * 验证token是否有效
+     * @param id
+     * @param token
+     * 返回true表示验证成功，返回false表示验证失败
+     */
+    @Override
+    public Boolean userValidate(Long id, String token) {
+        Business valBusiness= (Business) redisTemplate.opsForValue().get(token);
+        if (id.equals(valBusiness.getId()))
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * 忘记密码，邮箱找回，发送验证码
+     * @param business
+     * @return
+     */
+    @Override
+    public ServerResponse sendResetEmail(Business business,String code) {
+
+        MimeMessage mimeMessage = emailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
+            helper.setFrom(from);
+            helper.setTo(business.getEmail());
+            helper.setSubject(FORGET_TITLE_SIGN_UP);
+            String message = business.getBusinessName()+FORGET_CONTENT+"\n"+code;
+            helper.setText(message);
+            emailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            return ServerResponse.Failure("send failure");
+        }
+        return ServerResponse.Success("send sucess");
+    }
+
+    /**
+     * 判断code是否有效
+     * @param business
+     * @param code
+     * @return
+     */
+    @Override
+    public boolean codeVerify(Business business, String code) {
+        Business redBusiness = (Business) redisTemplate.opsForValue().get(code);
+        if (redBusiness.getId().equals(business.getId()))
+            return true;
+        else
+            return false;
     }
 }

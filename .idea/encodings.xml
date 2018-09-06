@@ -6,8 +6,6 @@
     <file url="file://$PROJECT_DIR$/artmall-domain" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/artmall-manager" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/artmall-web" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/config/JedisClient.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/config/JedisClientCluster.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/artmall-web/src/main/java/com/artmall/config/JedisClientPool.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

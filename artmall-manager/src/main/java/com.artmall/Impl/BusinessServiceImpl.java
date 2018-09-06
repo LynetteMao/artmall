@@ -15,6 +15,7 @@ import com.artmall.utils.SaltUtil;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -39,23 +40,24 @@ public class BusinessServiceImpl implements BusinessService {
         BusinessExample.Criteria criteria = example.createCriteria();
         criteria.andEmailEqualTo(email);
         List<Business> list = businessMapper.selectByExample(example);
-        return list.get(0);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        }
+        else
+            return null;
 
 
     }
 
     @Override
-    public Business selectBusinessById(Long userNo) {
-        return null;
+    public Business selectBusinessById(Long id) {
+        return businessMapper.selectByPrimaryKey(id);
+
     }
 
 
-    @Override
-    public ServerResponse<Business> addUser(Business business) {
-        System.out.println("hashpass为"+business.getHashedPwd());
+    public Business register(Business business){
         Business newBusiness = new Business();
-        //校验
-
         newBusiness.setId(new IDUtils(3, 4).nextId());
         newBusiness.setBusinessName(business.getBusinessName());
         newBusiness.setRepresentationName(business.getRepresentationName());
@@ -70,16 +72,42 @@ public class BusinessServiceImpl implements BusinessService {
         newBusiness.setGmtCreate(new Date());
         newBusiness.setGmtModified(new Date());
         //0为邮箱未验证，且未通过管理员审核
-        newBusiness.setIsVerified((byte) 0);
-
+        newBusiness.setIsVerified((byte) 1);
+        return newBusiness;
+    }
+    @Override
+    public ServerResponse<Business> addUser(Business business) {
         try {
-            businessMapper.insert(newBusiness);
+            businessMapper.insert(business);
         } catch (Exception e) {
             return ServerResponse.Failure("插入失败");
         }
 
-        return ServerResponse.Success("插入成功",newBusiness);
+        return ServerResponse.Success("插入成功",business);
     }
 
+    @Override
+    public ServerResponse resetPassword(Business business,String newPassword) {
+        business.setHashedPwd(new SimpleHash("MD5",newPassword,ByteSource.Util.bytes(business.getSalt()),1024).toString());
+        try {
+            businessMapper.updateByPrimaryKey(business);
+        }catch (Exception e){
+            return ServerResponse.Failure("修改密码");
+        }
+
+        return ServerResponse.Success("修改密码成功",business);
+    }
+
+    @Override
+    public ServerResponse emailSuccess(Business business) {
+        business.setIsVerified(Byte.valueOf("1"));
+        try {
+            businessMapper.updateByPrimaryKey(business);
+        }catch (Exception e){
+            return ServerResponse.Failure("邮箱验证成功");
+        }
+
+        return ServerResponse.Success("邮箱验证失败");
+    }
 
 }

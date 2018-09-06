@@ -16,6 +16,9 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,7 @@ import java.util.List;
  * @author
  * @create 2018-08-08 13:51
  **/
+@CacheConfig(cacheNames = "stu")     //抽取缓存的公共配置
 @Service(value = "StudentService")
 public class StudentServiceImpl implements StudentService {
 
@@ -42,6 +46,7 @@ public class StudentServiceImpl implements StudentService {
 //    }
 
     @Override
+    @CachePut
     public Student selectStudentById(Long id) {
         Student student = studentMapper.selectByPrimaryKey(id);
         return student;
@@ -72,7 +77,10 @@ public class StudentServiceImpl implements StudentService {
         StudentExample.Criteria criteria = example.createCriteria();
         criteria.andStudentIdEqualTo(userNo);
         List<Student> list = studentMapper.selectByExample(example);
-        return list.get(0);
+        if (list.isEmpty())
+            return null;
+        else
+            return list.get(0);
     }
 
     @Override

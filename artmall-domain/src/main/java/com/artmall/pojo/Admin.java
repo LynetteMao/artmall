@@ -2,9 +2,10 @@ package com.artmall.pojo;
 
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
 import java.util.Date;
 @Repository
-public class Admin implements UserMember {
+public class Admin implements UserMember,Serializable {
     private Long id;
 
     private String loginName;

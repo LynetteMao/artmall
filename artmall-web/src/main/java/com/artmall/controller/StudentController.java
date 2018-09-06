@@ -35,7 +35,6 @@ public class StudentController {
                                           @RequestParam("password")String password){
         UsernamePasswordToken token = new UsernamePasswordToken(studentId,password);
         Student student = studentService.selectStudentByStuId(studentId);
-
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
@@ -47,7 +46,8 @@ public class StudentController {
             return ServerResponse.Failure("error");
         }
         //如果是第一次登入，由前端控制路由跳转
-        if (student.getIsVerified().equals("0")){
+        byte verified = 0;
+        if (student.getIsVerified().equals(verified)){
             return ServerResponse.FirstSuccess(JWTUtil.sign(student.getId(),Const.LoginType.STUDENT));
         }else
             return ServerResponse.Success(JWTUtil.sign(student.getId(),Const.LoginType.STUDENT));

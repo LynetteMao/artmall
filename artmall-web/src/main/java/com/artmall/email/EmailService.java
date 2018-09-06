@@ -9,10 +9,15 @@ import com.artmall.response.ServerResponse;
  **/
 
 public interface EmailService {
-    public ServerResponse sendSimpleMail(String to,String subject,String content);
+//    public ServerResponse sendSimpleMail(String to,String subject,String content);
 
-    public void registerEmail(Business business,String token);
+    public ServerResponse registerEmail(Business business,String token);
 
-    void userValidate(Business business, String token);
-     void test(Business business,String token);
+     Boolean userValidate(Long id, String token);
+
+
+    ServerResponse sendResetEmail(Business business,String code);
+
+    boolean codeVerify(Business business, String code);
+//     ServerResponse test(Business business,String token);
 }

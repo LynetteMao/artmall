@@ -32,7 +32,7 @@ public enum ResponseCode {
     /**
      * 学生第一次登录
      */
-    STUDENT_FIRST_LOGIN(4,"STUDENT_FIRST_LOGIN") ;
+    STUDENT_FIRST_LOGIN(1111,"STUDENT_FIRST_LOGIN") ;
 
     private final int code;
 
