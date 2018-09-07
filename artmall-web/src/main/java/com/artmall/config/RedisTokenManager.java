@@ -2,6 +2,7 @@
 package com.artmall.config;
 
 import com.artmall.pojo.Business;
+import com.artmall.pojo.Student;
 import com.artmall.utils.JsonUtils;
 import com.artmall.utils.Tools;
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -46,6 +47,16 @@ public class RedisTokenManager {
         redisTemplate.expire(code,30,TimeUnit.HOURS);
         return code;
     }
+
+    public String getCodeOfResetPassword(Student student){
+        String code = Tools.getRandomNum();
+        redisTemplate.opsForValue().set(code,student);
+        redisTemplate.expire(code,30,TimeUnit.HOURS);
+        return code;
+    }
+
+
+
 
     public Business getBusiness(String token) {
         Business business=(Business) redisTemplate.opsForValue().get(token);

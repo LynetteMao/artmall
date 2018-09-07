@@ -3,6 +3,7 @@ package com.artmall.email;
 
 import com.artmall.config.RedisTokenManager;
 import com.artmall.pojo.Business;
+import com.artmall.pojo.Student;
 import com.artmall.response.ServerResponse;
 import com.artmall.utils.Tools;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class EmailServiceImpl implements EmailService {
 
     private static final String FORGET_TITLE_SIGN_UP = "The register massage";
 
-    private static final String SIGN_CONTENT = "please check it:";
+    private static final String SIGN_CONTENT = "please check it哈哈:";
 
     private static final String FORGET_CONTENT = "please reset the password:";
     @Autowired
@@ -110,19 +111,37 @@ public class EmailServiceImpl implements EmailService {
 
     /**
      * 忘记密码，邮箱找回，发送验证码
-     * @param business
+     * @param user
      * @return
      */
     @Override
-    public ServerResponse sendResetEmail(Business business,String code) {
+    public ServerResponse sendResetEmail(Business user,String code) {
 
         MimeMessage mimeMessage = emailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
             helper.setFrom(from);
-            helper.setTo(business.getEmail());
+            helper.setTo(user.getEmail());
             helper.setSubject(FORGET_TITLE_SIGN_UP);
-            String message = business.getBusinessName()+FORGET_CONTENT+"\n"+code;
+            String message = user.getBusinessName()+FORGET_CONTENT+"\n"+code;
+            helper.setText(message);
+            emailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            return ServerResponse.Failure("send failure");
+        }
+        return ServerResponse.Success("send sucess");
+    }
+
+
+    public ServerResponse sendResetEmail(Student user, String code) {
+
+        MimeMessage mimeMessage = emailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
+            helper.setFrom(from);
+            helper.setTo(user.getEmail());
+            helper.setSubject(FORGET_TITLE_SIGN_UP);
+            String message = user.getLoginName()+FORGET_CONTENT+"\n"+code;
             helper.setText(message);
             emailSender.send(mimeMessage);
         } catch (MessagingException e) {
@@ -141,6 +160,21 @@ public class EmailServiceImpl implements EmailService {
     public boolean codeVerify(Business business, String code) {
         Business redBusiness = (Business) redisTemplate.opsForValue().get(code);
         if (redBusiness.getId().equals(business.getId()))
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * 判断code是否有效
+     * @param student
+     * @param code
+     * @return
+     */
+    @Override
+    public boolean codeVerify(Student student, String code) {
+        Student redStudent = (Student) redisTemplate.opsForValue().get(code);
+        if (redStudent.getId().equals(student.getId()))
             return true;
         else
             return false;

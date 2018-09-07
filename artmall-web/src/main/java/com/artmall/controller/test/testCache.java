@@ -1,4 +1,4 @@
-package com.artmall.controller;
+package com.artmall.controller.test;
 
 
 import com.artmall.pojo.Student;

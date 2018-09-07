@@ -60,7 +60,7 @@ public class ServerResponse<T> implements Serializable {
         return this.msg;
     }
 
-    public T getDate(){
+    public T getData(){
         return this.data;
     }
 

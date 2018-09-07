@@ -1,6 +1,7 @@
 package com.artmall.email;
 
 import com.artmall.pojo.Business;
+import com.artmall.pojo.Student;
 import com.artmall.response.ServerResponse;
 
 /**
@@ -16,8 +17,10 @@ public interface EmailService {
      Boolean userValidate(Long id, String token);
 
 
-    ServerResponse sendResetEmail(Business business,String code);
+    ServerResponse sendResetEmail(Business user,String code);
 
+    ServerResponse sendResetEmail(Student user, String code);
     boolean codeVerify(Business business, String code);
+    boolean codeVerify(Student student, String code);
 //     ServerResponse test(Business business,String token);
 }

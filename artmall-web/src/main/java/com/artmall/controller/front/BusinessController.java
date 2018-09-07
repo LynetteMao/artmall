@@ -1,4 +1,4 @@
-package com.artmall.controller;
+package com.artmall.controller.front;
 
 
 import com.artmall.config.RedisTokenManager;

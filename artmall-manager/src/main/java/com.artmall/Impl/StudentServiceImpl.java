@@ -83,12 +83,16 @@ public class StudentServiceImpl implements StudentService {
             return list.get(0);
     }
 
+
+    /**
+     * 登录后直接通过jwt获取用户信息，进行密码的修改
+     * @param newpassword
+     * @return
+     */
     @Override
-    public ServerResponse<Student> resetPassword(String newpassword) {
-        Subject subject = SecurityUtils.getSubject();
-        String token = (String) subject.getPrincipal();
-        Long id = JWTUtil.getUserNo(token);
-        Student student = studentMapper.selectByPrimaryKey(id);
+    public ServerResponse<Student> resetPassword(String email,String newpassword) {
+        Student student = getStudent();
+        student.setEmail(email);
         student.setHashedPwd(new SimpleHash("MD5",newpassword,ByteSource.Util.bytes(student.getSalt()),1024).toString());
         student.setIsVerified(Byte.valueOf("1"));
         try {
@@ -98,5 +102,47 @@ public class StudentServiceImpl implements StudentService {
         }
 
         return ServerResponse.Success("修改密码成功",student);
+    }
+
+    @Override
+    public Student selectStudentByEmail(String email) {
+        StudentExample example = new StudentExample();
+        StudentExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(email);
+        List<Student> list = studentMapper.selectByExample(example);
+        if (list.isEmpty())
+            return null;
+        else
+            return list.get(0);
+    }
+
+    /**
+     * 未登录的时候修改密码
+     * @param student
+     * @param newPassword
+     * @return
+     */
+    @Override
+    public ServerResponse resetPasswordByEmail(Student student, String newPassword) {
+        student.setHashedPwd(new SimpleHash("MD5",newPassword,ByteSource.Util.bytes(student.getSalt()),1024).toString());
+        try {
+            studentMapper.updateByPrimaryKey(student);
+        }catch (Exception e){
+            return ServerResponse.Failure("修改密码失败");
+        }
+        return ServerResponse.Success("修改密码成功");
+    }
+
+    /**
+     * 获取当前用户信息
+     * @return
+     */
+    @Override
+    public Student getStudent() {
+        Subject subject = SecurityUtils.getSubject();
+        String token = (String) subject.getPrincipal();
+        Long id = JWTUtil.getUserNo(token);
+        Student student = studentMapper.selectByPrimaryKey(id);
+        return student;
     }
 }
