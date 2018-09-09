@@ -56,7 +56,7 @@ public class FileUtils {
             }
         }
     }
-    private static String CONF_PATH="D:\\github\\artmall\\artmall-common\\src\\main\\java\\com.artmall\\conf\\path_conf.properties";
+    private static String CONF_PATH="D:\\artmall\\artmall-common\\src\\main\\java\\com.artmall\\conf\\path_conf.properties";
     private static String CONF_saveRootFilePath_KEY="saveRootFilePath";
     private static String makePath(){
         String root="";
