@@ -19,7 +19,7 @@ public class mbg {
     public  void  creatmbg() throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        File configFile = new File("D:/generatorConfiguration.xml");
+        File configFile = new File("D:\\github\\artmall\\artmall-domain\\generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
