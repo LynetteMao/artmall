@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
-
+bin/*
+# Log file
+*.log
 
 # BlueJ files
 *.ctxt
@@ -20,7 +22,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-#maven ignore
+
 /target/
 
 # picture
@@ -31,9 +33,12 @@ hs_err_pid*
 *.bmp
 
 
+#package file
+*.war
+*.ear
+
 #kdiff3 ignore
 *.orig
-
 
 #eclipse ignore
 .settings/
