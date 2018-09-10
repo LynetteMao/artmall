@@ -24,3 +24,10 @@ hs_err_pid*
 
 
 /target/
+
+# picture
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.bmp
