@@ -110,6 +110,7 @@ public class StudentController {
         }else {
             return ServerResponse.Failure("验证码错误");
         }
+
     }
 
     /**
