@@ -38,7 +38,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public ServerResponse<Admin> addUser(Admin admin) {
         Admin newAdmin = new Admin();
-        newAdmin.setId(new IDUtils(2,3).nextId());
+        newAdmin.setId(IDUtils.getIdUtils().nextId());
         newAdmin.setLoginName(admin.getLoginName());
         newAdmin.setSalt(SaltUtil.InitSalt());
         newAdmin.setHashedPwd(new SimpleHash("MD5",admin.getHashedPwd(),ByteSource.Util.bytes(newAdmin.getSalt()),1024).toString());

@@ -35,7 +35,7 @@ public class NewProjectController {
                                                  @RequestParam("files") MultipartFile []multipartFiles){
 
         NewProject newProject=new NewProject();
-        newProject.setId(new IDUtils(5,6).nextId());
+        newProject.setId(IDUtils.getIdUtils().nextId());
         newProject.setBusiness_id(businessId);
         newProject.setProject_name(projectName);
         newProject.setProject_description(projectDesciption);

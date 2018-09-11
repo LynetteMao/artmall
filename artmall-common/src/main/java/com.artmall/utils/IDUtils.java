@@ -7,21 +7,7 @@ import java.util.Random;
  * Title: IDUtils
  * @author	ikook
  */
-public class IDUtils {
-
-    /*//随机生成ProjectID
-    public static long getProjectId() {
-        //取当前时间的长整形值包含毫秒
-        long millis = System.currentTimeMillis();
-        //long millis = System.nanoTime();
-        //加上两位随机数
-        Random random = new Random();
-        int end2 = random.nextInt(99);
-        //如果不足两位前面补0
-        String str = millis + String.format("%02d", end2);
-        long id = new Long(str);
-        return id;
-    }*/
+public class  IDUtils {
 
     /**
      * 起始的时间戳
@@ -53,18 +39,31 @@ public class IDUtils {
     private long machineId;     //机器标识
     private long sequence = 0L; //序列号
     private long lastStmp = -1L;//上一次时间戳
-
-    public IDUtils(long datacenterId, long machineId) {
+    private IDUtils(long datacenterId, long machineId){
         if (datacenterId > MAX_DATACENTER_NUM || datacenterId < 0) {
             throw new IllegalArgumentException("datacenterId can't be greater than MAX_DATACENTER_NUM or less than 0");
         }
         if (machineId > MAX_MACHINE_NUM || machineId < 0) {
             throw new IllegalArgumentException("machineId can't be greater than MAX_MACHINE_NUM or less than 0");
         }
-        this.datacenterId = datacenterId;
-        this.machineId = machineId;
+        idUtils.datacenterId = datacenterId;
+        idUtils.machineId = machineId;
     }
-
+    private static IDUtils idUtils=new IDUtils(0,0);
+    /**
+     *
+     * @param datacenterId 工作id(0-31)
+     * @param machineId     数据中心id(0-31)
+     */
+    public static IDUtils getIdUtils(long datacenterId, long machineId){
+        if(datacenterId!=0||machineId!=0){
+            idUtils=new IDUtils(datacenterId,machineId);
+        }
+        return idUtils;
+    }
+    public static IDUtils getIdUtils(){
+        return idUtils;
+    }
     /**
      * 产生下一个ID
      *

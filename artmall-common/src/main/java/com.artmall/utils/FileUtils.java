@@ -1,5 +1,6 @@
 package com.artmall.utils;
 
+import com.artmall.conf.Key;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -10,16 +11,15 @@ import java.util.Properties;
 
 public class FileUtils {
 
-    private static String ROOT_PATH="/upload-dir";
-
     /**
-     * 上传成功则返回存储地址String数组，否则返回null
-     * @param multipartFiles
-     * @return 放回存储地址字符串数组
+     *  上传成功则返回存储地址String数组，否则返回null
+     * @param path_sign 分类表识
+     * @param multipartFiles 多个文件
+     * @return
      */
-    public static String[] upFile(MultipartFile []multipartFiles){
+    public static String[] upFile(String path_sign,MultipartFile []multipartFiles){
         int len=multipartFiles.length;
-        String path=makePath();
+        String path=makePath(path_sign);
         String []apath=new String[len];
         for(int i=0;i<len;i++){
             apath[i]=path+multipartFiles[i].getOriginalFilename();
@@ -56,19 +56,8 @@ public class FileUtils {
             }
         }
     }
-    private static String CONF_PATH="D:\\artmall\\artmall-common\\src\\main\\java\\com.artmall\\conf\\path_conf.properties";
-    private static String CONF_saveRootFilePath_KEY="saveRootFilePath";
-    private static String makePath(){
-        String root="";
-        try {
-            Reader read=new FileReader(new File(CONF_PATH));
-            Properties p=new Properties();
-            p.load(read);
-            root=p.getProperty(CONF_saveRootFilePath_KEY);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String path=root+ROOT_PATH+"/"+DateUtil.getDays()+"/";
+    private static String makePath(String path_sign){
+        String path=Key.getValue(Key.saveFileRootPath)+"/"+path_sign+"/"+DateUtil.getDays()+"/";
         File file=new File(path);
         if(!file.exists()) file.mkdirs();
         return path;

@@ -55,7 +55,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ServerResponse<Student> addUser(Student student) {
         Student newStudent = new Student();
-        newStudent.setId(new IDUtils(4,5).nextId());
+        newStudent.setId(IDUtils.getIdUtils().nextId());
         newStudent.setStudentId(student.getStudentId());
         newStudent.setSalt(SaltUtil.InitSalt());
         newStudent.setHashedPwd(new SimpleHash("MD5",student.getHashedPwd(),ByteSource.Util.bytes(newStudent.getSalt()),1024).toString());

@@ -58,7 +58,7 @@ public class BusinessServiceImpl implements BusinessService {
 
     public Business register(Business business){
         Business newBusiness = new Business();
-        newBusiness.setId(new IDUtils(3, 4).nextId());
+        newBusiness.setId(IDUtils.getIdUtils().nextId());
         newBusiness.setBusinessName(business.getBusinessName());
         newBusiness.setRepresentationName(business.getRepresentationName());
         newBusiness.setRepresentationIdcard(business.getRepresentationIdcard());

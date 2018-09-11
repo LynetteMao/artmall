@@ -30,7 +30,7 @@ public class NewProjectServiceImpl implements NewProjectService{
 
     @Override
     public Boolean uploadNewProject(NewProject newProject, MultipartFile[] multipartFiles) {
-        String[] allPath = FileUtils.upFile(multipartFiles);
+        String[] allPath = FileUtils.upFile("ProjectFils",multipartFiles);
         if (allPath == null) {
             //ServerResponse<Integer>.Failure("上传失败");
             return false;
@@ -48,11 +48,15 @@ public class NewProjectServiceImpl implements NewProjectService{
     private Boolean uploadNewProjectAttachment(String[] allPath, MultipartFile[] multipartFiles, Long projectId) {
         int len = multipartFiles.length;
         NewProjectAttachment[] newProjectAttachments = new NewProjectAttachment[len];
+        Long []ID=new Long[len];
+        for(int i=0;i<len;i++){
+            ID[i]=IDUtils.getIdUtils().nextId();
+        }
         for (int i = 0; i < len; i++) {
             MultipartFile mult = multipartFiles[i];
             newProjectAttachments[i] = new NewProjectAttachment();
             NewProjectAttachment newProjectAttachment = newProjectAttachments[i];
-            newProjectAttachment.setId(new IDUtils(7,8).nextId());
+            newProjectAttachment.setId(ID[i]);
             newProjectAttachment.setAttachment_name(mult.getOriginalFilename());
             newProjectAttachment.setAttachment_size(mult.getSize());
             newProjectAttachment.setAttachment_path(allPath[i]);
@@ -65,7 +69,7 @@ public class NewProjectServiceImpl implements NewProjectService{
                 for (int j = i - 1; j >= 0; j--) {
                     NewProjectAttachmentExample ex = new NewProjectAttachmentExample();
                     NewProjectAttachmentExample.Criteria criteria = ex.createCriteria();
-                    criteria.andProject_idEqualTo(projectId);
+                    criteria.andIdEqualTo(ID[i]);
                     newProjectAttachmentMapper.deleteByExample(ex);
                 }
                 return false;

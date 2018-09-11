@@ -90,7 +90,7 @@ public class FileSystemStorageService implements StorageService {
         System.out.println("I AM HERE");
         String fileName = store(file);
         BusinessAttachment businessAttachment = new BusinessAttachment();
-        businessAttachment.setId(new IDUtils(5, 6).nextId());
+        businessAttachment.setId(IDUtils.getIdUtils().nextId());
         businessAttachment.setAttachmentName(fileName);
         businessAttachment.setAttachmentPath(ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("upload-dir")

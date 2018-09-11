@@ -23,8 +23,10 @@ bin/*
 hs_err_pid*
 
 
+*/target/
 /target/
-.idea
+target/
+.idea/
 /.idea/
 
 # picture
@@ -64,3 +66,6 @@ hs_err_pid*
 # system ignore
 .DS_Store
 Thumbs.db
+
+.gitignore
+mbg.java
