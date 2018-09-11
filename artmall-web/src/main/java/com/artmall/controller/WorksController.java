@@ -1,5 +1,6 @@
 package com.artmall.controller;
 
+/***************************冲突部分
 import com.artmall.Impl.WorksServicesImpl;
 import com.artmall.mapper.WorksMapper;
 import com.artmall.pojo.Works;
@@ -40,4 +41,17 @@ public class WorksController {
     }
 
 
+=======
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * 作品管理
+ *
+ * @author
+ * @create 2018-09-07 13:37
+ **/
+
+@RestController
+public class WorksController {
+******************************************/
 }

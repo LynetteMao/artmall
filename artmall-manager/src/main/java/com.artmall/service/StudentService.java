@@ -25,5 +25,11 @@ public interface StudentService {
 
     Student selectStudentByStuId(String userNo);
 
-    ServerResponse<Student> resetPassword(String newpassword);
+    ServerResponse<Student> resetPassword(String email,String newpassword);
+
+    Student selectStudentByEmail(String email);
+
+    ServerResponse resetPasswordByEmail(Student student, String newPassword);
+
+    Student getStudent();
 }

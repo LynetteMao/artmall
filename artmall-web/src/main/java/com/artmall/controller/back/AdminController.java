@@ -1,4 +1,4 @@
-package com.artmall.controller;
+package com.artmall.controller.back;
 
 import com.artmall.pojo.Admin;
 import com.artmall.response.Const;
