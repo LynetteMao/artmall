@@ -7,6 +7,7 @@ import com.artmall.response.Const;
 import com.artmall.response.ServerResponse;
 import com.artmall.service.StudentService;
 import com.artmall.utils.JWTUtil;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -32,6 +33,7 @@ public class StudentController {
 
     @Autowired
     StudentService studentService;
+    @ApiOperation("学生登录，如果是第一次登录，则返回1111")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ServerResponse login (@RequestParam("studentid")String studentId,
                                           @RequestParam("password")String password){
@@ -65,6 +67,7 @@ public class StudentController {
      * @param student
      * @return
      */
+    @ApiOperation("发送重置密码验证码的邮件")
     private ServerResponse sendResetPasswordEmail(Student student){
         String code =redisTokenManager.getCodeOfResetPassword(student);
         if (student.getEmail()!=null) {
@@ -77,6 +80,7 @@ public class StudentController {
      * 忘记密码
      * @return
      */
+    @ApiOperation("忘记密码")
     @RequestMapping(value = "/forget",method = RequestMethod.POST)
     public ServerResponse forget (@RequestParam("stuId") String studId){
         Student student = studentService.selectStudentByStuId(studId);
@@ -93,6 +97,7 @@ public class StudentController {
      * @param email
      * @return
      */
+    @ApiOperation("第一次登录时填入邮箱修改密码")
     @RequestMapping(value = "/firstLogin/SendEmail",method = RequestMethod.POST)
     public ServerResponse firstLogin (@RequestParam("email")String email){
         Student student=studentService.getStudent();
@@ -100,6 +105,7 @@ public class StudentController {
         return sendResetPasswordEmail(student);
     }
 
+    @ApiOperation("邮件验证码验证")
     @RequestMapping(value = "/firstLogin/verified",method = RequestMethod.POST)
     public ServerResponse firstLoginVeried(@RequestParam("email")String email,
                                            @RequestParam("code") String code,
@@ -120,6 +126,7 @@ public class StudentController {
      * @param newPassword
      * @return
      */
+    @ApiOperation("修改密码")
     @RequestMapping(value = "/resetPasswordByEmail",method = RequestMethod.POST)
     public ServerResponse resetPassword (@RequestParam("email")String email,
                                          @RequestParam("code") String code,
@@ -133,7 +140,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
+/*    @RequestMapping(value = "/test",method = RequestMethod.GET)
     public ServerResponse article() {
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()) {
@@ -142,7 +149,7 @@ public class StudentController {
             return ServerResponse.Failure( "You are guest");
         }
 
-    }
+    }*/
 
 
 

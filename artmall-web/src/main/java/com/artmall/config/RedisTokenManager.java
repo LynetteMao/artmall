@@ -2,6 +2,7 @@
 package com.artmall.config;
 
 import com.artmall.pojo.Business;
+import com.artmall.pojo.BusinessAttachment;
 import com.artmall.pojo.Student;
 import com.artmall.utils.JsonUtils;
 import com.artmall.utils.Tools;
@@ -19,8 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 
 
-/**
- * @author 生成token（发送邮件标识用户身份的token）
+/**生成token（发送邮件标识用户身份的token）
+ * @author
  * @create 2018-08-24 10:43
  **/
 
@@ -61,6 +62,15 @@ public class RedisTokenManager {
     public Business getBusiness(String token) {
         Business business=(Business) redisTemplate.opsForValue().get(token);
         return business;
+    }
+
+    public void setBusinessAttachmentRedis(BusinessAttachment businessAttachment) {
+        redisTemplate.opsForValue().set(String.valueOf(businessAttachment.getBusinessId()),businessAttachment);
+    }
+
+    public BusinessAttachment getBusinessAttachment(Long id) {
+        BusinessAttachment businessAttachment = (BusinessAttachment)redisTemplate.opsForValue().get(id.toString());
+        return businessAttachment;
     }
 }
 

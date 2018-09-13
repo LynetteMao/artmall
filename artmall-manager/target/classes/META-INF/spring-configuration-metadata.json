@@ -1,0 +1,30 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.artmall.storage.StorageProperties",
+      "name": "storage",
+      "type": "com.artmall.storage.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.artmall.storage.StorageProperties",
+      "defaultValue": "image\\image-directory",
+      "name": "storage.imagedirectory",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.artmall.storage.StorageProperties",
+      "defaultValue": "image\\upload-dir",
+      "name": "storage.location",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.artmall.storage.StorageProperties",
+      "defaultValue": "image\\save-water-mark",
+      "name": "storage.watermark",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Repository
 public class Student implements UserMember,Serializable {
     private Long id;
@@ -42,7 +44,25 @@ public class Student implements UserMember,Serializable {
 
     private Integer followerCount;
 
-    private String skill;
+    public List<Skill> getSkill() {
+        return skill;
+    }
+
+    public void setSkill(List<Skill> skill) {
+        this.skill = skill;
+    }
+
+    public List<Works> getWorks() {
+        return works;
+    }
+
+    public void setWorks(List<Works> works) {
+        this.works = works;
+    }
+
+    private List<Skill> skill;
+
+    private List<Works> works;
 
     public Long getId() {
         return id;
@@ -188,11 +208,5 @@ public class Student implements UserMember,Serializable {
         this.followerCount = followerCount;
     }
 
-    public String getSkill() {
-        return skill;
-    }
 
-    public void setSkill(String skill) {
-        this.skill = skill == null ? null : skill.trim();
-    }
 }

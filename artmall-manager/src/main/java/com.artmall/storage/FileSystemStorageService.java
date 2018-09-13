@@ -1,25 +1,20 @@
 package com.artmall.storage;
 
 import com.artmall.exception.StorageException;
-import com.artmall.mapper.BusinessAttachmentMapper;
-import com.artmall.pojo.BusinessAttachment;
-import com.artmall.response.ServerResponse;
 import com.artmall.service.StorageService;
-import com.artmall.utils.IDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Date;
 
 /**
  * @author
@@ -28,10 +23,27 @@ import java.util.Date;
 @Service
 public class FileSystemStorageService implements StorageService {
     private final Path rootLocation;
+    private final Path watermarkLocationp;
+    private final Path imagedirectoryLocation;
 
+    public Path getImagedirectoryLocation() {
+        return imagedirectoryLocation;
+    }
+
+
+    public Path getRootLocation() {
+        return rootLocation;
+    }
+    public Path getWatermarkLocationp(){
+        return watermarkLocationp;
+    }
+
+    //获取配置文件里面的地址
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         this.rootLocation = Paths.get(properties.getLocation());
+        this.watermarkLocationp = Paths.get(properties.getWatermark());
+        this.imagedirectoryLocation = Paths.get(properties.getImagedirectory());
     }
 
     @Override
@@ -44,11 +56,14 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
+    /**
+     * 单文件的上传
+     * @param file
+     * @return
+     */
     @Override
-    public String store(MultipartFile file)  {
+    public String store(MultipartFile file,Path path)  {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
-        System.out.println("filename为"+filename);
-        System.out.println("root为"+rootLocation);
 
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + filename);
@@ -60,10 +75,8 @@ public class FileSystemStorageService implements StorageService {
                                 + filename);            }
 
         try {
-                System.out.println("I AM HERE");
                 InputStream inputStream = file.getInputStream();
-                System.out.println("can i");
-                Files.copy(inputStream, this.rootLocation.resolve(filename),
+                Files.copy(inputStream, path,
                             StandardCopyOption.REPLACE_EXISTING);
             return filename;
         } catch (IOException e) {
@@ -71,45 +84,76 @@ public class FileSystemStorageService implements StorageService {
 
         }
 
-
     }
+
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
 
+    public Path[] fileUpload(String path_sign,MultipartFile []file){
+        int len=file.length;
+        //为了区分每个不同类型的文件放在不同的文件夹
 
-
-    @Autowired
-    BusinessAttachmentMapper businessAttachmentMapper;
-
-    public ServerResponse<Object> addInfoAttachment(MultipartFile file,
-                                                    Long id
-    ) {
-        System.out.println("I AM HERE");
-        String fileName = store(file);
-        BusinessAttachment businessAttachment = new BusinessAttachment();
-        businessAttachment.setId(new IDUtils(5, 6).nextId());
-        businessAttachment.setAttachmentName(fileName);
-        businessAttachment.setAttachmentPath(ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("upload-dir")
-                .path(fileName)
-                .toUriString());
-        businessAttachment.setAttachmentSize(file.getSize());
-        businessAttachment.setAttachmentType("0");
-        businessAttachment.setBusinessId(id);
-        businessAttachment.setGmtCreate(new Date());
-        businessAttachment.setGmtModified(new Date());
-
-        try {
-            businessAttachmentMapper.insert(businessAttachment);
-        } catch (Exception e) {
-            return ServerResponse.Failure("插入失败");
+        Path []filePath=new Path[len];
+//        String [] filePathByString = new String[len];
+        Path path = null;
+        //文件路径为路径加上文件名称
+        for(int i=0;i<len;i++){
+            path=makePath(path_sign,file[i].getOriginalFilename());
+            filePath[i]=path;
         }
+        //初始化文件
+        File[]files=new File[len];
 
-        return ServerResponse.Success("插入成功");
+        for(int i=0;i<len;i++) {
+
+            try {
+                InputStream inputStream = file[i].getInputStream();
+                Files.copy(inputStream, filePath[i],
+                        StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                if (i == len)
+                    i--;
+                for (int j = i; j >= 0; j--) {
+                    files[j].delete();
+                }
+                throw new StorageException("Failed to store file " + file[i].getOriginalFilename(), e);
+            }
+        }
+        return filePath;
+
     }
+
+
+
+    /**
+     * 返回文件路径加文件名
+     * @param path_sign
+     * @param filename
+     * @return
+     */
+    public Path makePath(String path_sign,String filename){
+        File file=new File(this.rootLocation.resolve(path_sign).toString());
+        if(!file.exists()) file.mkdirs();
+        return file.toPath().resolve(filename);
+    }
+
+    public Path makeWatermarkPath(String path_sign, String filename){
+        File file = new File(this.watermarkLocationp.resolve(path_sign).toString());
+        if (!file.exists()) file.mkdirs();
+        return file.toPath().resolve(filename);
+    }
+
+    @Override
+    public Path makeImageDirectoryPath(String pathSign, String filename) {
+        File file = new File(this.imagedirectoryLocation.resolve(pathSign).toString());
+        if (!file.exists()) file.mkdirs();
+        return file.toPath().resolve(filename);
+    }
+
+
 }
 
 

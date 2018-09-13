@@ -70,6 +70,12 @@ public class EmailServiceImpl implements EmailService {
         return ServerResponse.Success("Send Sucess");
     }*/
 
+    /**
+     * 发送注册邮件
+     * @param business
+     * @param token
+     * @return
+     */
     @Override
     public ServerResponse registerEmail(Business business, String token) {
         MimeMessage mimeMessage = emailSender.createMimeMessage();

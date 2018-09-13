@@ -4,10 +4,13 @@ package com.artmall.controller.front;
 import com.artmall.config.RedisTokenManager;
 import com.artmall.email.EmailService;
 import com.artmall.pojo.Business;
+import com.artmall.pojo.BusinessAttachment;
 import com.artmall.response.Const;
 import com.artmall.response.ServerResponse;
 import com.artmall.service.BusinessService;
 import com.artmall.service.StorageService;
+
+import com.artmall.service.UploadService;
 import com.artmall.utils.JWTUtil;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
@@ -21,6 +24,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.nio.file.Path;
 
 /**
  * @author mllove
@@ -48,9 +54,14 @@ public class BusinessController {
             return ServerResponse.Failure("用户已注册");
         }else {
             Business newBusiness = businessService.register(business);
-            return sendValidateEmail(newBusiness);
+
+            sendValidateEmail(newBusiness);
+            return ServerResponse.Success("发送成功",newBusiness);
         }
     }
+
+//
+
 
 
     /**
@@ -59,6 +70,7 @@ public class BusinessController {
      */
 
         private ServerResponse sendValidateEmail(Business business){
+            //写入缓存
             String token =redisTokenManager.getTokenOfSignUp(business);
             return emailService.registerEmail(business,token);
         }
@@ -69,37 +81,42 @@ public class BusinessController {
      * @return
      */
     @ApiOperation("验证链接")
-    @RequestMapping(value = "/register/verify")
+    @RequestMapping(value = "/register/verify",method = RequestMethod.GET)
     public ServerResponse verify (@RequestParam("token") String token,
                                   @RequestParam("id") Long id){
         //如果验证成功要从redis中获取数据存入数据库
         if (emailService.userValidate(id,token)) {
+            //读取缓存
             Business business=redisTokenManager.getBusiness(token);
-            return businessService.addUser(business);
+            businessService.addUser(business);
+            //从缓存中将附件信息写入数据库
+            BusinessAttachment businessAttachment = redisTokenManager.getBusinessAttachment(business.getId());
+            uploadService.addBusinessAttachmentInfo(businessAttachment);
+            return ServerResponse.Success("注册成功");
         }
         else
             return ServerResponse.Failure("verify failure");
 
     }
 
-//    private  ServerResponse checkSignUp(Business business){
-//        if (!CheckUtils.isEmail(business.getEmail())){
-//            return ServerResponse.Failure("")
-//        }
-//    }
 
     /**
      * 注册时上传工商管理证明
      * @param file
-     * @param id
+     * @param
      * @return
      */
+    @Autowired
+    UploadService uploadService;
     @ApiOperation("上传凭证")
-    @RequestMapping(value = "/register/upload",method = RequestMethod.POST)
-    public ServerResponse upload (@RequestParam("file")MultipartFile file,
-                                          @RequestParam("businessid")Long id){
-        return storageService.addInfoAttachment(file,id);
+    @RequestMapping(value = "/register/upload",method = RequestMethod.POST,headers = "Content-Type= multipart/form-data")
+    public ServerResponse upload (@RequestParam("file")MultipartFile []file,
+                                  @RequestParam("id")Long id){
+        BusinessAttachment businessAttachment =uploadService.addBusinessAttachmentInfoToRedis(file,id);
+        redisTokenManager.setBusinessAttachmentRedis(businessAttachment);
+        return ServerResponse.Success("上传成功");
     }
+
 
     /**
      * 企业登录

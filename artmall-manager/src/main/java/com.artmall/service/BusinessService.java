@@ -20,4 +20,6 @@ public interface BusinessService {
     ServerResponse resetPassword(Business business,String newPassword);
 
     ServerResponse emailSuccess(Business business);
+
+    Business getBusiness();
 }

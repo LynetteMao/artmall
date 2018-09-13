@@ -11,8 +11,11 @@ import com.artmall.service.BusinessService;
 import com.artmall.service.StorageService;
 import com.artmall.storage.FileSystemStorageService;
 import com.artmall.utils.IDUtils;
+import com.artmall.utils.JWTUtil;
 import com.artmall.utils.SaltUtil;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -108,6 +111,18 @@ public class BusinessServiceImpl implements BusinessService {
         }
 
         return ServerResponse.Success("邮箱验证失败");
+    }
+
+    @Override
+    public Business getBusiness() {
+        Subject subject = SecurityUtils.getSubject();
+        String token = (String) subject.getPrincipal();
+        Long id = JWTUtil.getUserNo(token);
+        if(id==null){
+            return null;
+        }
+        Business business = businessMapper.selectByPrimaryKey(id);
+        return business;
     }
 
 }
