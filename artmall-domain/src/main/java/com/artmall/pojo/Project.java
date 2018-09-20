@@ -30,6 +30,26 @@ public class Project {
 
     private List<Skill> skillList;
 
+    private Integer bidCount;
+
+    public Integer getBidCount() {
+        return bidCount;
+    }
+
+    public void setBidCount(Integer bidCount) {
+        this.bidCount = bidCount;
+    }
+
+    public Double getAveragePrice() {
+        return averagePrice;
+    }
+
+    public void setAveragePrice(Double averagePrice) {
+        this.averagePrice = averagePrice;
+    }
+
+    private Double averagePrice;
+
     public List<Skill> getSkillList() {
         return skillList;
     }

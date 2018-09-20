@@ -39,15 +39,6 @@ import java.util.*;
 @Configuration
 public class ShiroConfiguration {
 
-//
-//    @Value("${spring.redis.shiro.host}")
-//    private String host;
-//    @Value("${spring.redis.shiro.port}")
-//    private int port;
-//    @Value("${spring.redis.shiro.timeout}")
-//    private int timeout;
-//    @Value("${spring.redis.shiro.password}")
-//    private String password;
 
 
     @Bean

@@ -1,5 +1,6 @@
 package com.artmall.Impl;
 
+import com.artmall.Dto.RegisterDto;
 import com.artmall.mapper.BusinessAttachmentMapper;
 import com.artmall.mapper.BusinessMapper;
 import com.artmall.pojo.Business;
@@ -59,18 +60,18 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
 
-    public Business register(Business business){
+    public Business register(RegisterDto business){
         Business newBusiness = new Business();
         newBusiness.setId(new IDUtils(3, 4).nextId());
-        newBusiness.setBusinessName(business.getBusinessName());
-        newBusiness.setRepresentationName(business.getRepresentationName());
-        newBusiness.setRepresentationIdcard(business.getRepresentationIdcard());
+        newBusiness.setBusinessName(business.getName());
+        newBusiness.setRepresentationName(business.getEnterpriseName());
+        newBusiness.setRepresentationIdcard(business.getIdCard());
         //要验证
-        newBusiness.setEmail(business.getEmail());
-        newBusiness.setTel(business.getTel());
+        newBusiness.setEmail(business.getMail());
+        newBusiness.setTel(business.getPhoneNumber());
 
         newBusiness.setSalt(SaltUtil.InitSalt());
-        newBusiness.setHashedPwd(new SimpleHash("MD5", business.getHashedPwd(), ByteSource.Util.bytes(newBusiness.getSalt()), 1024).toString());
+        newBusiness.setHashedPwd(new SimpleHash("MD5", business.getPassword(), ByteSource.Util.bytes(newBusiness.getSalt()), 1024).toString());
 
         newBusiness.setGmtCreate(new Date());
         newBusiness.setGmtModified(new Date());

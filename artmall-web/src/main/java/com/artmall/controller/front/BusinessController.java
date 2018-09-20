@@ -1,6 +1,8 @@
 package com.artmall.controller.front;
 
 
+import com.artmall.Dto.RegisterDto;
+import com.artmall.captcha.CaptchaService;
 import com.artmall.config.RedisTokenManager;
 import com.artmall.email.EmailService;
 import com.artmall.pojo.Business;
@@ -12,6 +14,8 @@ import com.artmall.service.StorageService;
 
 import com.artmall.service.UploadService;
 import com.artmall.utils.JWTUtil;
+import com.artmall.utils.SendCaptchaUtils;
+import com.github.qcloudsms.SmsSingleSenderResult;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -26,7 +30,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.nio.file.Path;
+import java.util.Map;
 
 /**
  * @author mllove
@@ -46,10 +52,10 @@ public class BusinessController {
     EmailService emailService;
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     @ApiOperation("注册")
-    public ServerResponse resiger(@RequestBody Business business){
+    public ServerResponse resiger(@RequestBody RegisterDto business){
 
 
-        String email = business.getEmail();
+        String email = business.getMail();
         if (businessService.selectBusinessByEmail(email)!=null){
             return ServerResponse.Failure("用户已注册");
         }else {
@@ -60,7 +66,32 @@ public class BusinessController {
         }
     }
 
-//
+    @Autowired
+    CaptchaService captchaService;
+    /**
+     * 发送验证短信
+     * @param
+     * @return
+     */
+    @ApiOperation("发送验证码")
+    @RequestMapping(value = "/register/captcha",method = RequestMethod.POST)
+    public SmsSingleSenderResult sendCaptcha  (HttpServletRequest request){
+        String tel = request.getParameter("tel");
+        return captchaService.sendCaptcha(tel);
+    }
+
+    @ApiOperation("验证手机和验证码是否匹配")
+    @RequestMapping(value = "/register/captcha/varify",method = RequestMethod.POST)
+    public ServerResponse varifyCaptcha  (HttpServletRequest request){
+        String tel = request.getParameter("tel");
+        String code = request.getParameter("code");
+        if (captchaService.captchaValidate(tel,code))
+            return ServerResponse.Success("验证成功");
+        else
+            return ServerResponse.Failure("验证失败");
+    }
+
+
 
 
 
@@ -82,7 +113,7 @@ public class BusinessController {
      */
     @ApiOperation("验证链接")
     @RequestMapping(value = "/register/verify",method = RequestMethod.GET)
-    public ServerResponse verify (@RequestParam("token") String token,
+    public ServerResponse verifyEmail (@RequestParam("token") String token,
                                   @RequestParam("id") Long id){
         //如果验证成功要从redis中获取数据存入数据库
         if (emailService.userValidate(id,token)) {
@@ -111,7 +142,11 @@ public class BusinessController {
     @ApiOperation("上传凭证")
     @RequestMapping(value = "/register/upload",method = RequestMethod.POST,headers = "Content-Type= multipart/form-data")
     public ServerResponse upload (@RequestParam("file")MultipartFile []file,
-                                  @RequestParam("id")Long id){
+                                  @RequestParam("id")Long id,
+                                  @RequestBody Map<String,String> map){
+        MultipartFile[] files = map.get("file");
+
+
         BusinessAttachment businessAttachment =uploadService.addBusinessAttachmentInfoToRedis(file,id);
         redisTokenManager.setBusinessAttachmentRedis(businessAttachment);
         return ServerResponse.Success("上传成功");
@@ -120,14 +155,16 @@ public class BusinessController {
 
     /**
      * 企业登录
-     * @param email
-     * @param password
+     * @param
+     * @param
      * @return
      */
     @ApiOperation("企业登录")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ServerResponse login (@RequestParam("email")String email,
-                                           @RequestParam("password")String password){
+    public ServerResponse login (@RequestBody Map<String,String> map){
+            String email = map.get("email");
+            String password = map.get("password");
+
         UsernamePasswordToken token = new UsernamePasswordToken(email,password);
         Business business = businessService.selectBusinessByEmail(email);
         if (business.getIsVerified()!=3)
@@ -147,12 +184,13 @@ public class BusinessController {
     }
     /**
      * 忘记密码
-     * @param email
+     * @param
      * @return
      */
     @ApiOperation("忘记密码")
     @RequestMapping(value = "/forget",method = RequestMethod.POST )
-    public ServerResponse forget (@RequestParam("email") String email){
+    public ServerResponse forget (@RequestBody Map<String,String> map){
+        String email = map.get("email");
         Business business = businessService.selectBusinessByEmail(email);
 
         if(business!=null){
@@ -176,16 +214,15 @@ public class BusinessController {
 
     /**
      * 重置密码
-     * @param email
-     * @param code
-     * @param newPassword
      * @return
      */
     @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword",method = RequestMethod.POST )
-    public ServerResponse resetPassword (@RequestParam("email")String email,
-                                         @RequestParam("code") String code,
-                                         @RequestParam("newPassword") String newPassword ){
+    public ServerResponse resetPassword (@RequestBody Map<String,String> map){
+        String email = map.get("email");
+        String code = map.get("code");
+        String newPassword = map.get("newPassword");
+
         Business business = businessService.selectBusinessByEmail(email);
         if (emailService.codeVerify(business,code)){
             return businessService.resetPassword(business,newPassword);

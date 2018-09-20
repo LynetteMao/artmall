@@ -1,6 +1,7 @@
 package com.artmall.service;
 
 
+import com.artmall.Dto.RegisterDto;
 import com.artmall.pojo.Business;
 import com.artmall.pojo.BusinessAttachment;
 import com.artmall.pojo.Student;
@@ -14,7 +15,7 @@ public interface BusinessService {
 
     ServerResponse<Business> addUser(Business business);
 
-    Business register(Business business);
+    Business register(RegisterDto business);
 
 
     ServerResponse resetPassword(Business business,String newPassword);

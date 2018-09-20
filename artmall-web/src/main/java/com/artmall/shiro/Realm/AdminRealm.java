@@ -25,6 +25,8 @@ public class AdminRealm extends AuthorizingRealm {
     AdminService adminService;
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        System.out.println("Admin MyShiroRealm.doGetAuthenticationInfo()");
+
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         Admin admin = adminService.selectByUsername(token.getUsername());
         ByteSource salt = ByteSource.Util.bytes(admin.getSalt());

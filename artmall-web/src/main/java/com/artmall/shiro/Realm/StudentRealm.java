@@ -52,14 +52,13 @@ public class StudentRealm extends AuthorizingRealm {
     @Override
     //authenticationToken存放的是用户输入信息(通常为用户名和密码)，要拿这个信息和
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
+        System.out.println("Student MyShiroRealm.doGetAuthenticationInfo()");
 
 
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         System.out.println(token.getPassword());
 
         Student student = studentService.selectStudentByStuId(token.getUsername());
-        System.out.println(student.toString());
         ByteSource salt = ByteSource.Util.bytes(student.getSalt());
         if (student != null) {
             System.out.println("开始验证");

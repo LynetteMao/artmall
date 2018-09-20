@@ -3,6 +3,7 @@ package com.artmall.controller.front;
 import com.artmall.config.RedisTokenManager;
 import com.artmall.email.EmailService;
 import com.artmall.pojo.Student;
+import com.artmall.pojo.StudentLoginDto;
 import com.artmall.response.Const;
 import com.artmall.response.ServerResponse;
 import com.artmall.service.StudentService;
@@ -17,10 +18,7 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author mllove
@@ -35,8 +33,10 @@ public class StudentController {
     StudentService studentService;
     @ApiOperation("学生登录，如果是第一次登录，则返回1111")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ServerResponse login (@RequestParam("studentid")String studentId,
-                                          @RequestParam("password")String password){
+    public ServerResponse login (@RequestBody StudentLoginDto studentLoginDto){
+
+        String studentId = studentLoginDto.getStudentId();
+        String password = studentLoginDto.getPassword();
         UsernamePasswordToken token = new UsernamePasswordToken(studentId,password);
         Student student = studentService.selectStudentByStuId(studentId);
         Subject subject = SecurityUtils.getSubject();
@@ -82,7 +82,7 @@ public class StudentController {
      */
     @ApiOperation("忘记密码")
     @RequestMapping(value = "/forget",method = RequestMethod.POST)
-    public ServerResponse forget (@RequestParam("stuId") String studId){
+    public ServerResponse forget (@RequestParam("studentId") String studId){
         Student student = studentService.selectStudentByStuId(studId);
         if (student != null){
             return sendResetPasswordEmail(student);
@@ -140,16 +140,18 @@ public class StudentController {
     }
 
 
-/*    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public ServerResponse article() {
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public ServerResponse article(@RequestParam("id") String id) {
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()) {
-            return ServerResponse.Success("You are already logged in");
+
+            return ServerResponse.Success("You are already logged in",id);
         } else {
-            return ServerResponse.Failure( "You are guest");
+            System.out.println("id"+id);
+            return ServerResponse.Failure( "You are guest",id);
         }
 
-    }*/
+    }
 
 
 

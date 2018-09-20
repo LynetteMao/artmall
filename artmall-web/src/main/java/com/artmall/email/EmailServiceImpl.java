@@ -84,7 +84,7 @@ public class EmailServiceImpl implements EmailService {
             helper.setFrom(from);
             helper.setTo(business.getEmail());
             helper.setSubject(SIGN_TITLE_SIGN_UP);
-            String link = "http://localhost:8080/business/register/verify?token="+token+"&id="+business.getId();
+            String link = "http://120.79.239.141:8080/business/register/verify?token="+token+"&id="+business.getId();
             String message = business.getBusinessName()+SIGN_CONTENT+"\n"+link;
             helper.setText(message);
             emailSender.send(mimeMessage);
@@ -164,8 +164,8 @@ public class EmailServiceImpl implements EmailService {
      */
     @Override
     public boolean codeVerify(Business business, String code) {
-        Business redBusiness = (Business) redisTemplate.opsForValue().get(code);
-        if (redBusiness.getId().equals(business.getId()))
+        Business redisBusiness = (Business) redisTemplate.opsForValue().get(code);
+        if (redisBusiness.getId().equals(business.getId()))
             return true;
         else
             return false;

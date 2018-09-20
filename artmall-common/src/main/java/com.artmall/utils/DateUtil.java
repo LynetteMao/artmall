@@ -1,6 +1,7 @@
 package com.artmall.utils;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
@@ -50,7 +51,35 @@ public class DateUtil {
      */
     public static String getTime() {
         return sdfTime.format(new Date());
+
+    }
+
+    public static Date getDeadline(Date date,int day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE,day);
+        return calendar.getTime();
+    }
+
+    public static Long getRemainDay(Date beginDate,Date endDate){
+        Long a = (Long) (endDate.getTime()-beginDate.getTime())/(1000*3600*24);
+        return a;
     }
 
 
+    public static SimpleDateFormat getSdfYear() {
+        return sdfYear;
+    }
+
+    public static SimpleDateFormat getSdfDay() {
+        return sdfDay;
+    }
+
+    public static SimpleDateFormat getSdfDays() {
+        return sdfDays;
+    }
+
+    public static SimpleDateFormat getSdfTime() {
+        return sdfTime;
+    }
 }
